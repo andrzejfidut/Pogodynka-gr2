@@ -14,9 +14,10 @@ public class Application {
     public static void main(String[] args) {
 
         UserDataInput test;
-         UserDataInput userDataInputReader = new UserDataInput();
-         String localization = userDataInputReader.getData();
-         System.out.println(localization);
+        UserDataInput userDataInputReader = new UserDataInput();
+        String localization = userDataInputReader.getData();
+        System.out.println(localization);
+
         String[] text = localization.split(",");
         String country = text[0].trim();
         String city = text[1].trim();
@@ -51,7 +52,6 @@ public class Application {
         Meteo meteo = restTemplate.getForObject(urlMeteo, Meteo.class);
         String temp = String.format("%.2f", (Float.parseFloat(meteo.getMain().getTemp()) - 273.15));
         System.out.println("Meteo: " + "temp: " + temp + " pressure: " + meteo.getMain().getPressure() + " humidity: " + meteo.getMain().getHumidity());
-        System.out.println("************************************************");
 
     }
 }
